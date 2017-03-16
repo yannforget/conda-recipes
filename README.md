@@ -12,6 +12,8 @@
 
 ## Installation
 
+[Get the Anaconda distribution](https://www.continuum.io/downloads)
+
 Conda packages are available on [Anaconda Cloud](https://anaconda.org/yannforget/repo) and can be installed with the conda package manager.
 
 ``` bash
