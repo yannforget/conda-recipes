@@ -1,5 +1,7 @@
 # Conda recipes for remote sensing
 
+![Install with Conda](https://anaconda.org/yannforget/ledaps/badges/installer/conda.svg)
+
 ## Available packages
 
 * [libgeotiff](https://trac.osgeo.org/geotiff/) : A library for reading and writing GeoTIFF information tags.
