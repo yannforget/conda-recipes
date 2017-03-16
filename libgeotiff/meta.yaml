@@ -1,0 +1,34 @@
+{% set name = "libgeotiff" %}
+{% set version = "1.4.2" %}
+{% set sha256 = "acfc76ee19b3d41bb9c7e8b780ca55d413893a96c09f3b27bdb9b2573b41fd23" %}
+
+package:
+    name: {{ name|lower }}
+    version: {{ version }}
+    sha256: {{ sha256 }}
+
+source:
+    fn: {{ name }}-{{ version }}.tar.gz
+    url: http://download.osgeo.org/geotiff/{{ name }}/{{ name }}-{{ version }}.tar.gz
+
+requirements:
+    build:
+        - libtiff
+        - proj4
+    run:
+        - libtiff
+        - proj4
+
+test:
+    commands:
+        - test -f $PREFIX/include/geotiff.h
+        - test -f $PREFIX/lib/libgeotiff.so
+
+about:
+    home: https://trac.osgeo.org/geotiff/
+    license_file: LICENSE
+    summary: "Library for reading and writing GeoTIFF information tags."
+
+extra:
+    recipe-maintainers:
+        - yannforget

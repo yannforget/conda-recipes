@@ -1,0 +1,39 @@
+{% set name = "ledaps" %}
+{% set version = "3.1.1" %}
+{% set sha256 = "df05972cbff5d7ff1ad3f17331dae1a6e518dd42f7be828e4af6d3af034e87d2" %}
+
+package:
+    name: {{ name }}
+    version: {{ version }}
+    sha256: {{ sha256 }}
+
+source:
+    fn: {{ name }}_v{{ version }}.tar.gz 
+    url: https://github.com/USGS-EROS/espa-surface-reflectance/archive/{{ name }}_v{{ version }}.tar.gz
+    patches:
+        - paths.patch
+
+build:
+    number: 1
+
+requirements:
+    build:
+        - espa-product-formatter
+    run:
+        - espa-product-formatter
+
+test:
+    commands:
+        - test -f $PREFIX/bin/lndsr
+        - test -f $PREFIX/bin/lndcal
+        - test -f $PREFIX/bin/lndpm
+
+about:
+    home: https://github.com/USGS-EROS/espa-surface-reflectance/ledaps
+    license: NASA-1.3
+    license_file: ledaps/ledapsSrc/LEDAPS-LICENSE.txt
+    summary: "Landsat Ecosystem Disturbance Adaptive Processing System"
+
+extra:
+    recipe-maintainers:
+        - yannforget

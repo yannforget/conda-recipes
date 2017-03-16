@@ -1,0 +1,61 @@
+{% set name = "espa-product-formatter" %}
+{% set version = "1.11.0" %}
+{% set sha256 = "6796b3015cf4e2a0a9fe66148cd6ee8c0d47dfce6af3ec709f73b87dbf4be384" %}
+
+package:
+    name: {{ name|lower }}
+    version: {{ version }}
+
+source:
+    fn: product_formatter_v{{ version }}.tar.gz
+    url: https://github.com/USGS-EROS/{{ name }}/archive/product_formatter_v{{ version }}.tar.gz
+    sha256: {{ sha256 }}
+    patches:
+        - paths.patch
+
+build:
+    number: 1
+
+requirements:
+    build:
+        - hdfeos2 >=2.18.0
+        - libtiff >=3.8.2
+        - libgeotiff >=1.2.5
+        - hdf4 >=4.2.5
+        - hdf5 >=1.8.13
+        - libnetcdf >=4.1.1
+        - curl >=7.48.0
+        - jpeg >=6b
+        - zlib >=1.2.8
+        - libxml2
+        - jbig
+        - xz
+    run:
+        - hdfeos2 >=2.18.0
+        - libtiff >=3.8.2
+        - libgeotiff >=1.2.5
+        - hdf4 >=4.2.5
+        - hdf5 >=1.8.13
+        - libnetcdf >=4.1.1
+        - curl >=7.48.0
+        - jpeg >=6b
+        - zlib >=1.2.8
+        - libxml2
+        - jbig
+        - xz
+
+test:
+    commands:
+        - test -f $PREFIX/bin/convert_espa_to_gtif
+        - test -f $PREFIX/lib/lib_espa_common.a
+        - test -f $PREFIX/include/espa_common.h
+
+about:
+    home: https://github.com/USGS-EROS/espa-product-formatter
+    license: NASA-1.3
+    license_file: LICENSE.txt
+    summary: "Libraries and tools for working with the ESPA file format."
+
+extra:
+    recipe-maintainers:
+        - yannforget

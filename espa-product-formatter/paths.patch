@@ -1,0 +1,45 @@
+diff --git make.config make.config
+index 57d4638..e14a017 100644
+--- make.config
++++ make.config
+@@ -10,8 +10,8 @@ prefix = $(PREFIX)
+ bin_link_path = $(PREFIX)/bin
+ lib_link_path = $(PREFIX)/lib
+ inc_link_path = $(PREFIX)/include
+-python_link_path = $(PREFIX)/python
+-schema_link_path = $(PREFIX)/schema
++python_link_path = $(PREFIX)/bin
++schema_link_path = $(PREFIX)/share/espa/schema
+ 
+ # If BUILD_STATIC is not defined then shared compilation and linking
+ # will be performed
+@@ -74,7 +74,7 @@ help:
+ # ----------------------------------------------------------------------------
+ # Project specific variables, which are common to each project
+ project_name = espa-product-formatter
+-espa_project_dir = $(prefix)/$(project_name)
++espa_project_dir = $(PREFIX)/opt/$(project_name)
+ 
+ bin_install_path = $(espa_project_dir)/bin
+ link_source_path = ../$(project_name)/bin
+@@ -83,15 +83,15 @@ link_source_path = ../$(project_name)/bin
+ raw_binary_algorithm = raw_binary
+ raw_binary_algorithm_dir = $(espa_project_dir)/$(raw_binary_algorithm)
+ raw_binary_bin_install_path = $(raw_binary_algorithm_dir)/bin
+-raw_binary_link_bin_path = ../$(project_name)/$(raw_binary_algorithm)/bin
++raw_binary_link_bin_path = ../opt/$(project_name)/$(raw_binary_algorithm)/bin
+ raw_binary_lib_install_path = $(raw_binary_algorithm_dir)/lib
+-raw_binary_link_lib_path = ../$(project_name)/$(raw_binary_algorithm)/lib
++raw_binary_link_lib_path = ../opt/$(project_name)/$(raw_binary_algorithm)/lib
+ raw_binary_inc_install_path = $(raw_binary_algorithm_dir)/include
+-raw_binary_link_inc_path = ../$(project_name)/$(raw_binary_algorithm)/include
++raw_binary_link_inc_path = ../opt/$(project_name)/$(raw_binary_algorithm)/include
+ 
+ python_lib_install_path = $(espa_project_dir)/python
+-python_lib_link_path = ../$(project_name)/python
++python_lib_link_path = ../opt/$(project_name)/python
+ 
+ schema_lib_install_path = $(espa_project_dir)/schema
+-schema_lib_link_path = ../$(project_name)/schema
++schema_lib_link_path = ../../../opt/$(project_name)/schema
+ 

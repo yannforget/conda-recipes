@@ -1,0 +1,22 @@
+diff --git make.config make.config
+index a230bde..6c4d5b7 100644
+--- make.config
++++ make.config
+@@ -70,14 +70,14 @@ help:
+ # ----------------------------------------------------------------------------
+ # Project specific variables, which are common to each project
+ project_name = espa-cloud-masking
+-espa_project_dir = $(prefix)/$(project_name)
++espa_project_dir = $(prefix)/opt/$(project_name)
+ 
+ bin_install_path = $(espa_project_dir)/bin
+-link_source_path = ../$(project_name)/bin
++link_source_path = ../opt/$(project_name)/bin
+ 
+ # Algorithm specific variables
+ cfmask_algorithm = cfmask
+ cfmask_algorithm_dir = $(espa_project_dir)/$(cfmask_algorithm)
+ cfmask_bin_install_path = $(cfmask_algorithm_dir)/bin
+-cfmask_link_source_path = ../$(project_name)/$(cfmask_algorithm)/bin
++cfmask_link_source_path = ../opt/$(project_name)/$(cfmask_algorithm)/bin
+ 

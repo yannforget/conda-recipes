@@ -1,0 +1,38 @@
+{% set name = "lasrc" %}
+{% set version = "1.0.0" %}
+{% set sha256 = "aaa5a665e828a8f7c49bc6c3cb5f2467ae02cc3dce82c436ce391cbba7d27599" %}
+
+package:
+    name: {{ name }}
+    version: {{ version }}
+    sha256: {{ sha256 }}
+
+source:
+    fn: {{ name }}_v{{ version }}.tar.gz 
+    url: https://github.com/USGS-EROS/espa-surface-reflectance/archive/{{ name }}_v{{ version }}.tar.gz
+    patches:
+        - paths.patch
+build:
+    number: 0
+
+requirements:
+    build:
+        - espa-product-formatter
+        - requests
+    run:
+        - espa-product-formatter
+        - requests
+
+test:
+    commands:
+        - test -f $PREFIX/bin/lasrc
+
+about:
+    home: https://github.com/USGS-EROS/espa-surface-reflectance/ledaps
+    license: NASA-1.3
+    license_file: ledaps/ledapsSrc/LEDAPS-LICENSE.txt
+    summary: "Landsat Surface Reflectance Code"
+
+extra:
+    recipe-maintainers:
+        - yannforget
