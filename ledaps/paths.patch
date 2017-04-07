@@ -22,3 +22,18 @@ index 6e05654..4944ef8 100644
 -lasrc_link_source_path = ../$(project_name)/$(lasrc_algorithm)/bin
 +lasrc_link_source_path = ../opt/$(project_name)/$(lasrc_algorithm)/bin
  
+diff --git scripts/Makefile scripts/Makefile
+index fed07d7..3b451a0 100644
+--- scripts/Makefile
++++ scripts/Makefile
+@@ -10,8 +10,8 @@ TOP = ..
+ include $(TOP)/make.config
+ 
+ # Define the script installation path
+-script_install_path = $(espa_project_dir)/bin
+-script_source_link_path = ../$(project_name)/bin
++script_install_path = $(ledaps_bin_install_path)
++script_source_link_path = $(ledaps_link_source_path)
+ 
+ SCRIPTS = surface_reflectance.py mask_per_pixel_angles.py gdal_remove_drivers.py
+ 

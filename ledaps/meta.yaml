@@ -1,6 +1,6 @@
 {% set name = "ledaps" %}
-{% set version = "3.1.1" %}
-{% set sha256 = "df05972cbff5d7ff1ad3f17331dae1a6e518dd42f7be828e4af6d3af034e87d2" %}
+{% set version = "3.1.2" %}
+{% set sha256 = "d9f711492e81dc5536245be2850933ae08d76f0d967c9010e7912c2cddaacac9" %}
 
 package:
     name: {{ name }}
@@ -12,9 +12,10 @@ source:
     url: https://github.com/USGS-EROS/espa-surface-reflectance/archive/{{ name }}_v{{ version }}.tar.gz
     patches:
         - paths.patch
+        - py3.patch
 
 build:
-    number: 1
+    number: 4
 
 requirements:
     build:

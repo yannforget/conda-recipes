@@ -1,8 +1,8 @@
 diff --git make.config make.config
-index 6e05654..9973f61 100644
+index 6e05654..1d9853f 100644
 --- make.config
 +++ make.config
-@@ -70,16 +70,18 @@ help:
+@@ -70,16 +70,17 @@ help:
  # ----------------------------------------------------------------------------
  # Project specific variables, which are common to each project
  project_name = espa-surface-reflectance
@@ -20,7 +20,22 @@ index 6e05654..9973f61 100644
  lasrc_algorithm_dir = $(espa_project_dir)/$(lasrc_algorithm)
  lasrc_bin_install_path = $(lasrc_algorithm_dir)/bin
 -lasrc_link_source_path = ../$(project_name)/$(lasrc_algorithm)/bin
+-
 +lasrc_link_source_path = ../opt/$(project_name)/$(lasrc_algorithm)/bin
-+l8_bin_install_path = $(lasrc_algorithm_dir)/bin
-+l8_link_source_path = ../opt/$(project_name)/$(lasrc_algorithm)/bin
++l8_bin_install_path = $(lasrc_bin_install_path)
++l8_link_source_path = $(lasrc_link_source_path)
+diff --git scripts/Makefile scripts/Makefile
+index fed07d7..3b451a0 100644
+--- scripts/Makefile
++++ scripts/Makefile
+@@ -10,8 +10,8 @@ TOP = ..
+ include $(TOP)/make.config
+ 
+ # Define the script installation path
+-script_install_path = $(espa_project_dir)/bin
+-script_source_link_path = ../$(project_name)/bin
++script_install_path = $(ledaps_bin_install_path)
++script_source_link_path = $(ledaps_link_source_path)
+ 
+ SCRIPTS = surface_reflectance.py mask_per_pixel_angles.py gdal_remove_drivers.py
  

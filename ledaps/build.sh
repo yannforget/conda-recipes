@@ -30,6 +30,10 @@ export CURLLIB=$PREFIX/lib
 export IDNINC=$PREFIX/include
 export IDNLIB=$PREFIX/lib
 
-cd ledaps/ledapsSrc/src
+cd scripts
+make all
+make install
+
+cd ../ledaps/ledapsSrc/src
 make all
 make install

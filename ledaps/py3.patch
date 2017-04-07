@@ -1,0 +1,30 @@
+diff --git scripts/gdal_remove_drivers.py scripts/gdal_remove_drivers.py
+index 5e2c483..f411a88 100755
+--- scripts/gdal_remove_drivers.py
++++ scripts/gdal_remove_drivers.py
+@@ -13,7 +13,7 @@ def list_gdal_drivers():
+     """
+ 
+     return [gdal.GetDriver(index).ShortName
+-            for index in xrange(gdal.GetDriverCount())]
++            for index in range(gdal.GetDriverCount())]
+ 
+ 
+ def delete_gdal_drivers(exclusions=list()):
+diff --git scripts/mask_per_pixel_angles.py scripts/mask_per_pixel_angles.py
+index 2043dcf..b490d56 100755
+--- scripts/mask_per_pixel_angles.py
++++ scripts/mask_per_pixel_angles.py
+@@ -8,11 +8,10 @@ from osgeo import gdalconst
+ from gdalconst import *
+ import sys
+ import os
+-import commands
+ import datetime
+ import logging
+ from optparse import OptionParser
+-import gdal_remove_drivers as gdal_deregister
++from . import gdal_remove_drivers as gdal_deregister
+ 
+ ERROR = 1
+ SUCCESS = 0

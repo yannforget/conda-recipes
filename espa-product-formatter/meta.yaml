@@ -1,6 +1,6 @@
 {% set name = "espa-product-formatter" %}
-{% set version = "1.11.0" %}
-{% set sha256 = "6796b3015cf4e2a0a9fe66148cd6ee8c0d47dfce6af3ec709f73b87dbf4be384" %}
+{% set version = "1.11.1" %}
+{% set sha256 = "d8cc99e4f79e03ba754375376e77c548aae17a1b81c0605ce07016364202c96f" %}
 
 package:
     name: {{ name|lower }}

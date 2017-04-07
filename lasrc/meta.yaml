@@ -1,6 +1,6 @@
 {% set name = "lasrc" %}
-{% set version = "1.0.0" %}
-{% set sha256 = "aaa5a665e828a8f7c49bc6c3cb5f2467ae02cc3dce82c436ce391cbba7d27599" %}
+{% set version = "1.0.1" %}
+{% set sha256 = "a135873dafcd9ef903f920fbd2c32bc435f2d361f90da6d30a3f0a0f74dae130" %}
 
 package:
     name: {{ name }}
